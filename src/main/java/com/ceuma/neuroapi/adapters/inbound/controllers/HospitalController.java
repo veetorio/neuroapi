@@ -14,11 +14,13 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 
 @RestController
-@RequestMapping("/neuroapi")
+@RequestMapping("/instituicoes")
 public class HospitalController {
 
     @Autowired
@@ -29,7 +31,7 @@ public class HospitalController {
      * @param hospitalIn este argumento é o body da requisições
      */
     @Async
-    @PostMapping("/instituicoes")
+    @PostMapping
     public void criarNovaInstituto(@RequestBody HospitalDtoIn hospitalIn) {        
         hospitalService.novaInstituicao(hospitalIn);
     }
@@ -40,10 +42,12 @@ public class HospitalController {
      * @return List<HospitalDtoOut> listar , vai retornar uma lista de HospitaLDtoOut.
      */
     @Async
-    @GetMapping("/instituicoes")
+    @GetMapping
     public List<HospitalDtoOut> listarInstitutos() {
         return hospitalService.listarTodasInstitutos();
     }
+    
+
     
     
     

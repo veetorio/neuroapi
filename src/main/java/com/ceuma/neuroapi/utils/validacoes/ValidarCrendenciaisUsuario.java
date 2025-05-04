@@ -17,7 +17,7 @@ public class ValidarCrendenciaisUsuario {
     }
 
     public boolean validarEmail(){
-        return !(usuario.getEmail().matches("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$"));
+        return usuario.getEmail().matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\\\.[A-Za-z]{2,}$");
     }
     
     public boolean validarPatternUsuario(){

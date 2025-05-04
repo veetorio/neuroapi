@@ -14,5 +14,8 @@ springdoc:
   api-docs:
     path: "/neuro-doc"
   swagger-ui:
-    path : "/swagger-ui-custom.html"
-
+    path : "neurodoc/swagger-ui-custom.html"
+server:
+  address : 0.0.0.0
+  servlet:
+    context-path: /neuroapi

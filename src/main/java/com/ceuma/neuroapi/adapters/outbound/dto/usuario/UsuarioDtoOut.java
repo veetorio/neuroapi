@@ -1,4 +1,6 @@
 package com.ceuma.neuroapi.adapters.outbound.dto.usuario;
+import com.ceuma.neuroapi.domain.models.Usuario;
+
 import lombok.Getter;
 
 
@@ -8,7 +10,10 @@ import lombok.Getter;
 @Getter
 public class UsuarioDtoOut extends UsuarioDto {
     public UsuarioDtoOut(UsuarioDtoIn usuarioDtoIn) {
-        super(usuarioDtoIn.getEmail(),usuarioDtoIn.getNome(),usuarioDtoIn.getTipo());  
+        super(usuarioDtoIn.getEmail(),usuarioDtoIn.getNome(),usuarioDtoIn.getTipo(),usuarioDtoIn.getId());
+    }
+    public UsuarioDtoOut(Usuario usuarioDtoIn) {
+        super(usuarioDtoIn.getEmail(),usuarioDtoIn.getNome(),usuarioDtoIn.getTipoUsuario(),usuarioDtoIn.getIdUsuario());  
     }
     
 }

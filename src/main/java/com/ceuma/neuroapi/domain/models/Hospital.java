@@ -15,10 +15,12 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 @Getter
 @Setter
 public class Hospital {
@@ -35,6 +37,10 @@ public class Hospital {
 
     @OneToMany(mappedBy = "fk_hospital")
     private List<Paciente> pacientes;
+
+    @OneToMany(mappedBy = "fk_hospital")
+    private List<Avaliacao> avaliacoes;
+
 
     public Hospital(HospitalDtoIn hospitalDtoIn) {
         this.nome = hospitalDtoIn.getNome();

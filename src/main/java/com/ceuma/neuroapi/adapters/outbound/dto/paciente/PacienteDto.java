@@ -28,9 +28,7 @@ public class PacienteDto {
 
     protected String leito;
 
-    public PacienteDto(PacienteDtoIn pacienteDtoIn){
 
-    }
     public PacienteDto(Paciente pacienteDtoIn){
         this.leito = pacienteDtoIn.getLeito();
         this.nascimento = pacienteDtoIn.getDataDeNascimento();

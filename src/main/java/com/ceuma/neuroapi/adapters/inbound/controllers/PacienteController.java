@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 
 @RestController
-@RequestMapping("neuroapi")
+@RequestMapping("paciente")
 public class PacienteController {
     @Autowired
     private PacienteService pacienteService;
@@ -23,7 +23,7 @@ public class PacienteController {
     *  @param PacienteDtoIn. 
     *  @return UsuarioDtoOut retorna uma instancia de Usuario com poucos atributos só matendo uum
     */
-    @PostMapping("pacientes")
+    @PostMapping
     public PacienteDtoOut criarPaciente(@RequestBody PacienteDtoIn entity) {
         return pacienteService.criarPaciente(entity);
     }

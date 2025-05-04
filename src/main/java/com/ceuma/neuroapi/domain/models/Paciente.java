@@ -1,8 +1,10 @@
 package com.ceuma.neuroapi.domain.models;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import com.ceuma.neuroapi.adapters.outbound.dto.paciente.PacienteDtoIn;
+import com.ceuma.neuroapi.domain.relations.Consulta;
 import com.ceuma.neuroapi.utils.enums.Sexo;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -16,6 +18,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -45,6 +48,9 @@ public class Paciente {
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "fk_hospital")
     private Hospital fk_hospital;
+
+    @OneToMany(mappedBy = "fk_Consulta_paciente")
+    private List<Consulta> consulta;
 
     public Paciente(PacienteDtoIn pacienteDtoIn) {
         this.nome = pacienteDtoIn.getNome();

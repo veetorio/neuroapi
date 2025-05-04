@@ -2,6 +2,7 @@ package com.ceuma.neuroapi.adapters.outbound.dto.hospital;
 
 import java.util.List;
 
+import com.ceuma.neuroapi.adapters.outbound.dto.exams.AvaliacaoDtoIn;
 import com.ceuma.neuroapi.adapters.outbound.dto.paciente.PacienteDtoIn;
 
 import lombok.Getter;
@@ -13,6 +14,7 @@ import lombok.Getter;
 @Getter
 public class HospitalDtoIn extends HospitalDto {
     List<PacienteDtoIn> pacientesIn;
+    List<AvaliacaoDtoIn> avaliacoes;
     public HospitalDtoIn(String nome,List<PacienteDtoIn> list){
         super(nome);
         this.pacientesIn = list;

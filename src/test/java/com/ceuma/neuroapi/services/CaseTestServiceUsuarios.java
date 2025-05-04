@@ -21,9 +21,9 @@ public class CaseTestServiceUsuarios {
     @Test
     void CaseOfCreateAnUserTypeMedico(){
         // instancias de usuarios
-        UsuarioDtoIn testUser1 = new UsuarioDtoIn("vitor@gmail.com","vitorpsw","vitor",TipoUsuario.MEDICO);
-        UsuarioDtoIn testUser2 = new UsuarioDtoIn("charles@yahoo.com","charlespsw","charles",TipoUsuario.MEDICO);
-        UsuarioDtoIn testUser3 = new UsuarioDtoIn("marx@hotmail.com","marxpsw","marx",TipoUsuario.MEDICO);
+        UsuarioDtoIn testUser1 = new UsuarioDtoIn("vitor@gmail.com","vitorpsw","vitor",TipoUsuario.MEDICO,1L);
+        UsuarioDtoIn testUser2 = new UsuarioDtoIn("charles@yahoo.com","charlespsw","charles",TipoUsuario.MEDICO,1L);
+        UsuarioDtoIn testUser3 = new UsuarioDtoIn("marx@hotmail.com","marxpsw","marx",TipoUsuario.MEDICO,1L);
 
 
 
@@ -37,9 +37,9 @@ public class CaseTestServiceUsuarios {
     @Test
     void CaseOfCreateAnUserWithFieldNull(){
         
-        UsuarioDtoIn testUser1 = new UsuarioDtoIn("","saz","saturn",TipoUsuario.MEDICO);
-        UsuarioDtoIn testUser2 = new UsuarioDtoIn(null,"gakpo@gmail.com","saturn",TipoUsuario.MEDICO);
-        UsuarioDtoIn testUser3 = new UsuarioDtoIn(null,"jarvis@gmail.com","martispsw",TipoUsuario.MEDICO);
+        UsuarioDtoIn testUser1 = new UsuarioDtoIn("","saz","saturn",TipoUsuario.MEDICO,1L);
+        UsuarioDtoIn testUser2 = new UsuarioDtoIn(null,"gakpo@gmail.com","saturn",TipoUsuario.MEDICO,1L);
+        UsuarioDtoIn testUser3 = new UsuarioDtoIn(null,"jarvis@gmail.com","martispsw",TipoUsuario.MEDICO,1L);
 
 
         Error error1 = assertThrows(Error.class,() -> service2.createAnUser(testUser1));
@@ -55,9 +55,9 @@ public class CaseTestServiceUsuarios {
     @Test
     void CaseOfCreateAnUserWithFieldsBlanck(){
         
-        UsuarioDtoIn testUser1 = new UsuarioDtoIn("","saz","saturn",TipoUsuario.MEDICO);
-        UsuarioDtoIn testUser2 = new UsuarioDtoIn("gakpo@gmail.com","","saturn",TipoUsuario.MEDICO);
-        UsuarioDtoIn testUser3 = new UsuarioDtoIn("jarvis@gmail.com","martispsw","",TipoUsuario.MEDICO);
+        UsuarioDtoIn testUser1 = new UsuarioDtoIn("","saz","saturn",TipoUsuario.MEDICO,1L);
+        UsuarioDtoIn testUser2 = new UsuarioDtoIn("gakpo@gmail.com","","saturn",TipoUsuario.MEDICO,1L);
+        UsuarioDtoIn testUser3 = new UsuarioDtoIn("jarvis@gmail.com","martispsw","",TipoUsuario.MEDICO,1L);
 
 
         Error error1 = assertThrows(Error.class,() -> service2.createAnUser(testUser1));
@@ -72,9 +72,9 @@ public class CaseTestServiceUsuarios {
     @Test
     void CaseOfCreateAnUserWithPatternEmailIncorrect(){
         
-        UsuarioDtoIn testUser1 = new UsuarioDtoIn("gakpo","saz","saturn",TipoUsuario.MEDICO);
-        UsuarioDtoIn testUser2 = new UsuarioDtoIn("gakpo.com","sza","saturn",TipoUsuario.MEDICO);
-        UsuarioDtoIn testUser3 = new UsuarioDtoIn("jarvis@gmail","martispsw","sz",TipoUsuario.MEDICO);
+        UsuarioDtoIn testUser1 = new UsuarioDtoIn("gakpo","saz","saturn",TipoUsuario.MEDICO,1l);
+        UsuarioDtoIn testUser2 = new UsuarioDtoIn("gakpo.com","sza","saturn",TipoUsuario.MEDICO,1l);
+        UsuarioDtoIn testUser3 = new UsuarioDtoIn("jarvis@gmail","martispsw","sz",TipoUsuario.MEDICO,1l);
 
 
 

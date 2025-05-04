@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedBear - Sistema de Gerenciamento de Provas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        :root {
+            --primary: #2D5D7B;
+            --secondary: #98C1D9;
+            --accent: #EE6C4D;
+            --light: #F8F9FA;
+        }
+
+        body {
+            background-color: var(--light);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 20px 0;
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .bear-nurse {
+            width: 300px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .features {
+            padding: 50px 0;
+            background-color: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .feature-card {
+            background-color: var(--secondary);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        button {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #d55c3d;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="hero">
+                <div class="hero-content">
+                    <h1>MedBear</h1>
+                    <p>Sistema inteligente de gerenciamento de provas hospitalares</p>
+                    <button onclick="saibaMais()">Saiba Mais</button>
+                </div>
+                <div class="hero-image">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDMwMCAzMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPCEtLSBEZXNlbmhvIG1pbmltYWxpc3RhIGRvIHVyc28gLS0+CiAgPHBhdGggZD0iTSAxNTAgMTAwIEMgMTIwIDEwMCAxMDAgMTMwIDEwMCAxNjAgQyAxMDAgMTkwIDEyMCAyMjAgMTUwIDIyMCBDIDE4MCAyMjAgMjAwIDE5MCAyMDAgMTYwIEMgMjAwIDEzMCAxODAgMTAwIDE1MCAxMDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIyIi8+CiAgPCEtLSBPcmVsaGFzIC0tPgogIDxwYXRoIGQ9Ik0gMTIwIDkwIEMgMTEwIDgwIDEwMCA4MCAxMDAgOTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIyIi8+CiAgPHBhdGggZD0iTSAxODAgOTAgQyAxOTAgODAgMjAwIDgwIDIwMCA5MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjIiLz4KICAKICA8IS0tIE9saG9zIGUgbmFyaXogLS0+CiAgPGxpbmUgeDE9IjEzNSIgeTE9IjEyMCIgeDI9IjE0MCIgeTI9IjEyMCIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjIiLz4KICAKICA8bGluZSB4MT0iMTYwIiB5MT0iMTIwIiB4Mj0iMTY1IiB5Mj0iMTIwIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMiIvPgogIDxsaW5lIHgxPSIxNTAiIHkxPSIxMzAiIHgyPSIxNTAiIHkyPSIxMzUiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIyIi8+CiAgCiAgPCEtLSBUb3VjYSBkZSBlbmZlcm1laXJhIC0tPgogIDxwYXRoIGQ9Ik0gMTIwIDcwIEwgMTgwIDcwIiBmaWxsPSJub25lIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMiIvPgogIDxwYXRoIGQ9Ik0gMTQ1IDYwIEwgMTU1IDYwIE0gMTUwIDU1IEwgMTUwIDY1IiBzdHJva2U9IiNGRjAwMDAiIHN0cm9rZS13aWR0aD0iMiIvPgo8L3N2Zz4=" alt="Urso Enfermeira" class="bear-nurse">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="features">
+        <div class="container">
+            <h2>Funcionalidades Principais</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Gerenciamento de Provas</h3>
+                    <p>Organize e gerencie todas as provas médicas de forma eficiente</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Resultados em Tempo Real</h3>
+                    <p>Acompanhe os resultados dos exames instantaneamente</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Segurança Avançada</h3>
+                    <p>Proteção total dos dados sensíveis dos pacientes</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function saibaMais() {
+            alert('Bem-vindo ao MedBear!\n\nNosso sistema revolucionário ajuda hospitais a gerenciar suas provas e exames de forma eficiente e segura. Com nossa tecnologia, você pode:\n\n• Organizar provas por departamento\n• Acompanhar resultados em tempo real\n• Garantir a segurança dos dados\n• Gerar relatórios detalhados');
+        }
+
+        // Animação suave ao scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

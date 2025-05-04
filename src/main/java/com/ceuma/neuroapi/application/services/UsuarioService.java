@@ -6,7 +6,12 @@ import com.ceuma.neuroapi.application.repositories.UsuarioRepository;
 import com.ceuma.neuroapi.domain.models.Usuario;
 import com.ceuma.neuroapi.utils.validacoes.ValidarCrendenciaisUsuario;
 
+import jakarta.transaction.Transactional;
+
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
 /**
@@ -14,6 +19,7 @@ import org.springframework.stereotype.Service;
  * remove user entities while
  * performing validation checks on user input.
  */
+@Transactional
 @Service
 public class UsuarioService {
 
@@ -43,6 +49,27 @@ public class UsuarioService {
         return new UsuarioDtoOut(tuple);
     };
 
+    public UsuarioDtoOut findByUsuarioId(Long id){
+        return new UsuarioDtoOut(repository.findById(id).orElseThrow());
+    }
+
+    public UsuarioDtoOut login(UsuarioDtoIn in){
+        Usuario usuario = new Usuario();
+        usuario.setSenha(in.getSenha());
+        usuario.setEmail(in.getEmail());
+        Example<Usuario> example = Example.of(usuario); 
+        Optional<Usuario> login = repository.findOne(example);
+        if(login.isEmpty())
+            throw new Error("Não possui nenhuma user com essas credenciais");
+
+    
+        return new UsuarioDtoOut(login.orElseThrow());
+    }
+    public Usuario searchUsuarioById(Long id){
+        return repository
+            .findById(id)
+            .orElseThrow(() -> new RuntimeException("Sem body"));
+    }
     public void updateAnUser(UsuarioDtoIn newTuple) {
         return;
     };
